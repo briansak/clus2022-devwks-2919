@@ -71,6 +71,13 @@ sh ZAP_2_11_1_unix.sh
 
 **Press 1**
 
+> Which type of installation should be performed?
+> Select the type of installation that you want to perform. Click Next when
+> you are ready to continue.
+> Standard installation [1, Enter], Custom installation [2]
+
+**Press 1**
+
 ```console
 zap.sh -daemon -quickurl http://$NODE_IP:$NODE_PORT -quickprogress
 ```
