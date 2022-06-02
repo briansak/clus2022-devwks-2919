@@ -17,7 +17,7 @@ https://microservices-demo.github.io/api/index.html
 <img width="397" alt="image" src="https://user-images.githubusercontent.com/10421515/171740656-ca3fa920-3ba2-40a6-9cab-ee10c0d88544.png">
 
 * Bringing up K8s environment
-* Bringing up the Istio 
+* Bringing up the Istio service mesh
 
 <img width="397" alt="image" src="https://user-images.githubusercontent.com/10421515/171741112-30102f2d-645a-4534-907f-27ff8e056d57.png">
 
