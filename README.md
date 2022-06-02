@@ -79,7 +79,7 @@ sh ZAP_2_11_1_unix.sh
 **Press 1**
 
 ```console
-zap.sh -daemon -quickurl http://$NODE_IP:$NODE_PORT -quickprogress
+zap.sh -daemon -quickurl http://$NODE_IP:$NODE_PORT -quickprogress > report.html
 ```
 
 
