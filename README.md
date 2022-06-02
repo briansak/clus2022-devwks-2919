@@ -9,13 +9,40 @@
 
 <img width="1398" alt="image" src="https://user-images.githubusercontent.com/10421515/168376000-1b728306-7a1b-4ba8-98b4-fa564c170178.png">
 
-
 Sock Shop OpenAPI Spec:
 https://microservices-demo.github.io/api/index.html
 
+## Steps from the Learning Lab ##
+
+<img width="397" alt="image" src="https://user-images.githubusercontent.com/10421515/171740656-ca3fa920-3ba2-40a6-9cab-ee10c0d88544.png">
+
+* Bringing up K8s environment
+* Bringing up the Istio 
+
+<img width="397" alt="image" src="https://user-images.githubusercontent.com/10421515/171741112-30102f2d-645a-4534-907f-27ff8e056d57.png">
+
+* Applying Istio to K8s namespace
+* Deploying Sock Shop to K8s
+* Exposing the web interface for Sock Shop and APIClarity
+
+<img width="399" alt="image" src="https://user-images.githubusercontent.com/10421515/171745987-1bb3aec5-c07c-45f9-b787-002309b4b2f2.png">
+
+* Generate API traffic using the Sock Shop web interface
+* Capture the reconstructed OpenAPI spec
+* Upload the captured API spec
+* Observe deviations from API spec
+
+## BONUS: Installing and running ZAP Proxy
+
+**Run the following commands in your terminal IN THE LEARNING LAB ENVIRONMENT**
+
 ```console
 apk add openjdk11
+```
+```console
 wget https://github.com/zaproxy/zaproxy/releases/download/v2.11.1/ZAP_2_11_1_unix.sh
+```
+```console
 sh ZAP_2_11_1_unix.sh
 ```
 
