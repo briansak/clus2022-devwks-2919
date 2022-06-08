@@ -54,13 +54,13 @@ do
  {
    "requestID": "bla",
    "scheme": "http",
-   "destinationAddress": "$NODE_IP:$NODE_PORT",
+   "destinationAddress": "10.96.12.39:80",
    "destinationNamespace": "XXXDESTNAMESPACEXXX",
    "sourceAddress": "10.116.207.197:8000",
    "request": {
      "method": "GET",
      "path": "/pet/0000000000${i}",
-     "host": "$NODE_IP",
+     "host": "10.96.12.39",
      "common": {
        "version": "1",
        "time": 1647965554746,
