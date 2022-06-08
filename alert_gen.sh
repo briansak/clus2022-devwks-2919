@@ -3,8 +3,8 @@
 set -x 
 
 apiID=3
-apiclarity="localhost:80"
-telemetry="localhost:9090"
+apiclarity="${UPSTREAM_TELEMETRY_HOST_NAME:-localhost}:80"
+telemetry="${UPSTREAM_TELEMETRY_HOST_NAME:-localhost}:9090"
 #apiclarity="${UPSTREAM_TELEMETRY_HOST_NAME:-apiclarity-apiclarity.apiclarity:8080}"
 #telemetry="${UPSTREAM_TELEMETRY_HOST_NAME:-apiclarity-apiclarity.apiclarity:9000}"
 
@@ -13,7 +13,7 @@ telemetry="localhost:9090"
  {
    "requestID": "req-id",
    "scheme": "http",
-   "destinationAddress": "32.45.66.51:8000",
+   "destinationAddress": "$NODE_IP:$NODE_PORT",
    "destinationNamespace": "XXXDESTNAMESPACEXXX",
    "sourceAddress": "10.116.207.197:8000",
    "request": {
@@ -56,13 +56,13 @@ do
  {
    "requestID": "bla",
    "scheme": "http",
-   "destinationAddress": "32.45.66.51:8000",
+   "destinationAddress": "$NODE_IP:$NODE_PORT",
    "destinationNamespace": "XXXDESTNAMESPACEXXX",
    "sourceAddress": "10.116.207.197:8000",
    "request": {
      "method": "GET",
      "path": "/pet/0000000000${i}",
-     "host": "petstore.com",
+     "host": "$NODE_IP",
      "common": {
        "version": "1",
        "time": 1647965554746,
@@ -89,34 +89,34 @@ done
 
 
 curl -X POST --data-binary @- -H 'Content-Type: application/json' -H 'Accept: application/json' ${telemetry}/api/telemetry <<EOT
-{"requestID":"req-id","scheme":"http","destinationAddress":"32.45.66.51:8000","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"GET","path":"/pet/321654","host":"petstore.com","common":{"version":null,"headers":[{"key":"authorization","value":"Bearer eyJ0eXAiOiJKV1QifQ.eyJsb2dnZWRJbkFzIjoiYWRtaW4iLCJpYXQiOjE0MjI3Nzk2Mzh9.HoI84Px0J9oVujFgBvY42PF9xaBz0xCDJzuono4qo40"},{"key":"something","value":"password"},{"key":"password","value":"supersecret"},{"key":"Api-key","value":"123"}],"body":"cGFzc3dvcmQ=","TruncatedBody":false}},"response":{"statusCode":"200","common":{"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
+{"requestID":"req-id","scheme":"http","destinationAddress":"$NODE_IP:$NODE_PORT","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"GET","path":"/pet/321654","host":"petstore.com","common":{"version":null,"headers":[{"key":"authorization","value":"Bearer eyJ0eXAiOiJKV1QifQ.eyJsb2dnZWRJbkFzIjoiYWRtaW4iLCJpYXQiOjE0MjI3Nzk2Mzh9.HoI84Px0J9oVujFgBvY42PF9xaBz0xCDJzuono4qo40"},{"key":"something","value":"password"},{"key":"password","value":"supersecret"},{"key":"Api-key","value":"123"}],"body":"cGFzc3dvcmQ=","TruncatedBody":false}},"response":{"statusCode":"200","common":{"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
 EOT
 
 curl -X POST --data-binary @- -H 'Content-Type: application/json' -H 'Accept: application/json' ${telemetry}/api/telemetry <<EOT
-{"requestID":"req-id","scheme":"http","destinationAddress":"32.45.66.51:8000","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"GET","path":"/user/john","host":"petstore.com","common":{"version":null,"headers":[{"key":"Authorization","value":"Basic dXNlcjpwYXNz"}],"body":"","TruncatedBody":false}},"response":{"statusCode":"200","common":{"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
+{"requestID":"req-id","scheme":"http","destinationAddress":"$NODE_IP:$NODE_PORT","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"GET","path":"/user/john","host":"petstore.com","common":{"version":null,"headers":[{"key":"Authorization","value":"Basic dXNlcjpwYXNz"}],"body":"","TruncatedBody":false}},"response":{"statusCode":"200","common":{"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
 EOT
 
 curl -X POST --data-binary @- -H 'Content-Type: application/json' -H 'Accept: application/json' ${telemetry}/api/telemetry <<EOT
-{"requestID":"req-id","scheme":"http","destinationAddress":"32.45.66.51:8000","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"GET","path":"/carts/2021/pet/20","host":"petstore.com","common":{"version":null,"headers":[{"key":"Authorization","value":"Basic dXNlcjpwYXNz"}],"body":"","TruncatedBody":false}},"response":{"statusCode":"200","common":{"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
+{"requestID":"req-id","scheme":"http","destinationAddress":"$NODE_IP:$NODE_PORT","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"GET","path":"/carts/2021/pet/20","host":"petstore.com","common":{"version":null,"headers":[{"key":"Authorization","value":"Basic dXNlcjpwYXNz"}],"body":"","TruncatedBody":false}},"response":{"statusCode":"200","common":{"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
 EOT
 
 curl -X POST --data-binary @- -H 'Content-Type: application/json' -H 'Accept: application/json' ${telemetry}/api/telemetry <<EOT
-{"requestID":"req-id","scheme":"http","destinationAddress":"32.45.66.51:8000","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"DELETE","path":"/pet/65321","host":"petstore.com","common":{"version":null,"headers":[{"key":"authorization","value":"Bearer eyJ0eXAiOiJKV1QifQ.eyJsb2dnZWRJbkFzIjoiYWRtaW4iLCJpYXQiOjE0MjI3Nzk2Mzh9.HoI84Px0J9oVujFgBvY42PF9xaBz0xCDJzuono4qo40"}],"body":"","TruncatedBody":false}},"response":{"statusCode":"200","common":{"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
+{"requestID":"req-id","scheme":"http","destinationAddress":"$NODE_IP:$NODE_PORT","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"DELETE","path":"/pet/65321","host":"petstore.com","common":{"version":null,"headers":[{"key":"authorization","value":"Bearer eyJ0eXAiOiJKV1QifQ.eyJsb2dnZWRJbkFzIjoiYWRtaW4iLCJpYXQiOjE0MjI3Nzk2Mzh9.HoI84Px0J9oVujFgBvY42PF9xaBz0xCDJzuono4qo40"}],"body":"","TruncatedBody":false}},"response":{"statusCode":"200","common":{"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
 EOT
 
 curl -X POST --data-binary @- -H 'Content-Type: application/json' -H 'Accept: application/json' ${telemetry}/api/telemetry <<EOT
-{"requestID":"req-id","scheme":"http","destinationAddress":"32.45.66.51:8000","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"GET","path":"/auth/21654","host":"petstore.com","common":{"version":null,"headers":[{"key":"authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIn0.Q6CM1qIz2WTgTlhMzpFL8jI8xbu9FFfj5DY_bGVY98Y"}],"body":"","TruncatedBody":false}},"response":{"statusCode":"200","common":{"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
+{"requestID":"req-id","scheme":"http","destinationAddress":"$NODE_IP:$NODE_PORT","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"GET","path":"/auth/21654","host":"petstore.com","common":{"version":null,"headers":[{"key":"authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIn0.Q6CM1qIz2WTgTlhMzpFL8jI8xbu9FFfj5DY_bGVY98Y"}],"body":"","TruncatedBody":false}},"response":{"statusCode":"200","common":{"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
 EOT
 
 curl -X POST --data-binary @- -H 'Content-Type: application/json' -H 'Accept: application/json' ${telemetry}/api/telemetry <<EOT
-{"requestID":"req-id","scheme":"http","destinationAddress":"32.45.66.51:8000","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"GET","path":"/pet/10231/name","host":"petstore.com","common":{"version":null,"headers":[{"key":"authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiZXhwIjo5OTk5OTk5OTk5fQ.CAzfsBzzGRWytPzG9IhYFZ8jIO0ftx3EjMn48W0ZyQM"}],"body":"","TruncatedBody":false}},"response":{"statusCode":"200","common":{"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
+{"requestID":"req-id","scheme":"http","destinationAddress":"$NODE_IP:$NODE_PORT","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"GET","path":"/pet/10231/name","host":"petstore.com","common":{"version":null,"headers":[{"key":"authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiZXhwIjo5OTk5OTk5OTk5fQ.CAzfsBzzGRWytPzG9IhYFZ8jIO0ftx3EjMn48W0ZyQM"}],"body":"","TruncatedBody":false}},"response":{"statusCode":"200","common":{"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
 EOT
 
 curl -X POST --data-binary @- -H 'Content-Type: application/json' -H 'Accept: application/json' ${telemetry}/api/telemetry <<EOT
-{"requestID":"req-id","scheme":"http","destinationAddress":"32.45.66.51:8000","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"PUT","path":"/users/john","host":"petstore.com","common":{"version":null,"headers":[{"key":"authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjowfQ.i6i-xl0NxSyZBWVm-KFlqLN70w-QfRro5X2c1oTxSxfs_3OROBGdywHZMtgSpl2M"}],"body":"","TruncatedBody":false}},"response":{"statusCode":"200","common":{"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
+{"requestID":"req-id","scheme":"http","destinationAddress":"$NODE_IP:$NODE_PORT","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"PUT","path":"/users/john","host":"petstore.com","common":{"version":null,"headers":[{"key":"authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjowfQ.i6i-xl0NxSyZBWVm-KFlqLN70w-QfRro5X2c1oTxSxfs_3OROBGdywHZMtgSpl2M"}],"body":"","TruncatedBody":false}},"response":{"statusCode":"200","common":{"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
 EOT
 
 
 curl -X POST --data-binary @- -H 'Content-Type: application/json' -H 'Accept: application/json' ${telemetry}/api/telemetry <<EOT
-{"requestID":"req-id","scheme":"http","destinationAddress":"32.45.66.51:8000","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"GET","path":"/carts/99874","host":"petstore.com","common":{"time": 1647965554745, "version":null,"headers":[{"key":"authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.gj_9EM5nrCiiJTGsh91CGY6t0gNksSQ1O7dHym5GjmU"}],"body":"","TruncatedBody":false}},"response":{"statusCode":"200","common":{"time": 1647965554746,"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
+{"requestID":"req-id","scheme":"http","destinationAddress":"$NODE_IP:$NODE_PORT","destinationNamespace":null,"sourceAddress":"10.116.207.197:8000","request":{"method":"GET","path":"/carts/99874","host":"petstore.com","common":{"time": 1647965554745, "version":null,"headers":[{"key":"authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.gj_9EM5nrCiiJTGsh91CGY6t0gNksSQ1O7dHym5GjmU"}],"body":"","TruncatedBody":false}},"response":{"statusCode":"200","common":{"time": 1647965554746,"version":"1","headers":[],"body":"eyJjdnNzIjpbeyJzY29yZSI6Ny44LCJ2ZWN0b3IiOiJBVjpML0FDOkwvUFI6Ti9VSTpSL1M6VS9DOkgvSTpIL0E6SCJ9XX0=","TruncatedBody":false}}}
 EOT
