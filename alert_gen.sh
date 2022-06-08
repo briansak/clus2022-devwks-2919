@@ -3,8 +3,8 @@
 set -x 
 
 apiID=$1
-apiclarity="${UPSTREAM_TELEMETRY_HOST_NAME:-localhost}:8080"
-telemetry="${UPSTREAM_TELEMETRY_HOST_NAME:-localhost}:9000"
+apiclarity="${UPSTREAM_TELEMETRY_HOST_NAME:-localhost}:80"
+telemetry="${UPSTREAM_TELEMETRY_HOST_NAME:-localhost}:9090"
 #apiclarity="${UPSTREAM_TELEMETRY_HOST_NAME:-apiclarity-apiclarity.apiclarity:8080}"
 #telemetry="${UPSTREAM_TELEMETRY_HOST_NAME:-apiclarity-apiclarity.apiclarity:9000}"
 
