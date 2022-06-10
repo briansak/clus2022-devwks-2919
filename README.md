@@ -34,9 +34,17 @@ https://microservices-demo.github.io/api/index.html
 * Upload the captured API spec
 * Observe deviations from API spec
 
-## BONUS: Installing and running ZAP Proxy
+## BONUS: Simulating attacks using ZAP Proxy and scripting
 
 **Run the following commands in your terminal IN THE LEARNING LAB ENVIRONMENT**
+
+#### Expose the telemetry port of APIClarity
+
+```console
+nohup kubectl port-forward -n apiclarity svc/apiclarity-apiclarity 9000:9000 > ~/.apiclarity.log 2>&1 &
+```
+
+#### Install ZAP Proxy
 
 ```console
 apk add openjdk11
