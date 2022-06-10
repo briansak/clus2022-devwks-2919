@@ -4,7 +4,7 @@ set -x
 
 apiID=3
 apiclarity="localhost:80"
-telemetry="localhost:9090"
+telemetry="localhost:9000"
 
 # We need to create at least one trace to create the API entry
  curl -X POST --data-binary @- -H 'Content-Type: application/json' -H 'Accept: application/json' ${telemetry}/api/telemetry <<'END_OF_TRACE'
