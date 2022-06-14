@@ -1,6 +1,8 @@
 ## DEVWKS-2919 <br /> Real-World API Attacks, and How to Protect Your Cloud-Native Apps 
 
 ### Lab Environment: <a target="_blank" href="https://developer.cisco.com/learningcenter/labs/kubernetes-istio-sockshop-apiclarity/" rel="noopener noreferrer">APIClarity Learning Lab</a>
+<a href="#" onclick='window.open("https://developer.cisco.com/learningcenter/labs/kubernetes-istio-sockshop-apiclarity/");return false;'>APIClarity Learning Lab</a>
+
 > **USE INCOGNITO MODE/PRIVATE WINDOW**
 
 
