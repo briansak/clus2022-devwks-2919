@@ -97,11 +97,11 @@ chmod +x feed.sh
 ```
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173626149-e83166e2-813b-498f-bfc5-7c1fb5517758.png">
 
-### Click on API Events and observe the new alerts associated with the traffic that we generated in the environment.
+1. Click on API Events and observe the new alerts associated with the traffic that we generated in the environment.
 
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173626449-cd6dbae7-39b2-4d5d-8ab8-b66017ef4deb.png">
 
-### Click on Trace Analyis on one of the alerted events.  Observe the specific alert level and alert details.
+2. Click on **Trace Analyis** on one of the alerted events.  Observe the specific alert level and alert details.
 
 ## BONUS++: Testing security using ZAP Proxy
 
