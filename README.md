@@ -1,10 +1,7 @@
 ## DEVWKS-2919 <br /> Real-World API Attacks, and How to Protect Your Cloud-Native Apps 
 
 ### Lab Environment: <a target="_blank" href="https://developer.cisco.com/learningcenter/labs/kubernetes-istio-sockshop-apiclarity/" rel="noopener noreferrer">APIClarity Learning Lab</a>
-<a href="#" onclick='window.open("https://developer.cisco.com/learningcenter/labs/kubernetes-istio-sockshop-apiclarity/");return false;'>APIClarity Learning Lab</a>
-
 > **USE INCOGNITO MODE/PRIVATE WINDOW**
-
 
 <img width="1398" alt="image" src="https://user-images.githubusercontent.com/10421515/168375389-dd20f442-7291-48ff-b4b7-77d849b7976d.png">
 
@@ -36,7 +33,7 @@ https://microservices-demo.github.io/api/index.html
 * Upload the captured API spec
 * Observe deviations from API spec
 
-## BONUS: Simulating attacks using ZAP Proxy and scripting
+## BONUS: Simulating attacks using a shell script
 
 **Run the following commands in your terminal IN THE LEARNING LAB ENVIRONMENT**
 
@@ -45,6 +42,28 @@ https://microservices-demo.github.io/api/index.html
 ```console
 nohup kubectl port-forward -n apiclarity svc/apiclarity-apiclarity 9000:9000 > ~/.apiclarity.log 2>&1 &
 ```
+
+#### Pull down shell script from this repo into your environment.
+
+```console
+wget 
+```
+
+### Make the shell script executable
+
+```console
+chmod +x feed.sh
+```
+
+### Exectue the shell script
+```console
+./feed.sh
+```
+
+## BONUS++: Testing security using ZAP Proxy
+
+**Run the following commands in your terminal IN THE LEARNING LAB ENVIRONMENT**
+
 
 #### Install ZAP Proxy
 
