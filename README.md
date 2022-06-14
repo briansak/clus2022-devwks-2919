@@ -73,28 +73,29 @@ https://microservices-demo.github.io/api/index.html
 
 **Run the following commands in your terminal IN THE LEARNING LAB ENVIRONMENT**
 
-#### Expose the telemetry port of APIClarity
+1. Expose the telemetry port of APIClarity
 
 ```console
 nohup kubectl port-forward -n apiclarity svc/apiclarity-apiclarity 9000:9000 > ~/.apiclarity.log 2>&1 &
 ```
 
-#### Pull down shell script from this repo into your environment.
+2. Pull down shell script from this repo into your environment.
 
 ```console
 wget https://raw.githubusercontent.com/briansak/clus2022-devwks-2919/main/alert_gen.sh
 ```
 
-### Make the shell script executable
+3. Make the shell script executable
 
 ```console
 chmod +x alert_gen.sh
 ```
 
-### Exectue the shell script
+4. Exectue the shell script
 ```console
 ./alert_gen.sh
 ```
+
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173706990-cc181b5b-ad56-446b-be88-fa7deb1adcef.png">
 
 1. Click on API Events and observe the new alerts associated with the traffic that we generated in the environment.
@@ -108,7 +109,7 @@ chmod +x alert_gen.sh
 **Run the following commands in your terminal IN THE LEARNING LAB ENVIRONMENT**
 
 
-#### Install ZAP Proxy
+1. Download and install ZAP Proxy
 
 ```console
 apk add openjdk11
@@ -124,7 +125,7 @@ sh ZAP_2_11_1_unix.sh
 > This will install OWASP Zed Attack Proxy on your computer.
 > OK [o, Enter], Cancel [c]
 
-**Press Enter**
+2. **Press Enter** (repeatedly)
 
 > Click Next to continue, or Cancel to exit Setup.
 > Please read the following License Agreement. You must accept the terms of
@@ -143,17 +144,17 @@ sh ZAP_2_11_1_unix.sh
 > I accept the agreement
 > Yes [1], No [2]
 
-**Press 1**
+3. **Press 1**
 
 > Which type of installation should be performed?
 > Select the type of installation that you want to perform. Click Next when
 > you are ready to continue.
 > Standard installation [1, Enter], Custom installation [2]
 
-**Press 1**
+4. **Press 1**
+
+5. Exectue ZAP Proxy in daemon mode and run the initial scan.
 
 ```console
 zap.sh -daemon -quickurl http://$NODE_IP:$NODE_PORT/customers -quickprogress -host localhost -port 8999 &
  ```
-
-
