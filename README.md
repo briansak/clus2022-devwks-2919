@@ -46,7 +46,7 @@ nohup kubectl port-forward -n apiclarity svc/apiclarity-apiclarity 9000:9000 > ~
 #### Pull down shell script from this repo into your environment.
 
 ```console
-wget 
+wget https://raw.githubusercontent.com/briansak/clus2022-devwks-2919/main/feed.sh
 ```
 
 ### Make the shell script executable
