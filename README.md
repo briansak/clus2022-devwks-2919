@@ -82,20 +82,20 @@ nohup kubectl port-forward -n apiclarity svc/apiclarity-apiclarity 9000:9000 > ~
 #### Pull down shell script from this repo into your environment.
 
 ```console
-wget https://raw.githubusercontent.com/briansak/clus2022-devwks-2919/main/feed.sh
+wget https://raw.githubusercontent.com/briansak/clus2022-devwks-2919/main/alert_gen.sh
 ```
 
 ### Make the shell script executable
 
 ```console
-chmod +x feed.sh
+chmod +x alert_gen.sh
 ```
 
 ### Exectue the shell script
 ```console
-./feed.sh
+./alert_gen.sh
 ```
-<img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173626149-e83166e2-813b-498f-bfc5-7c1fb5517758.png">
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173706990-cc181b5b-ad56-446b-be88-fa7deb1adcef.png">
 
 1. Click on API Events and observe the new alerts associated with the traffic that we generated in the environment.
 
