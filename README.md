@@ -33,41 +33,41 @@ https://microservices-demo.github.io/api/index.html
 
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173617494-5972450c-deea-4ddb-825c-2855643d1e60.png">
 
-### Click on API Inventory to view the identified API calls from your environment.
-### Choose **catalogue.sock-shop** API.
+1. Click on API Inventory to view the identified API calls from your environment.
+2. Choose **catalogue.sock-shop** API.
 
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173617777-652a5141-4942-47fb-a1cc-9ef2a383098e.png">
 
-### Choose **Reconstructed** and **Review reconstructed spec**
+3. Choose **Reconstructed** and **Review reconstructed spec**
 
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173617998-b48a45e7-78f6-4f9a-b707-80763cc7f2d8.png">
 
-### Choose "Select All" and the **Approve review**.
+4. Choose "Select All" and the **Approve review**.
 
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173618173-ea0f0ae3-f792-43df-a9e4-4b031d696b7c.png">
 
-### Open the reconstructed spec in a Swagger interface using **see on Swagger**.
+5. Open the reconstructed spec in a Swagger interface using **see on Swagger**.
 
 * Upload the captured API spec
 
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173618435-4e07172f-bdfd-48ae-85d1-c3f29c3a841a.png">
 
-### Right-click on the OpenAPI Spec in .json format and choose **Save Link As...**
+6. Right-click on the OpenAPI Spec in .json format and choose **Save Link As...**
 
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173619259-cdad0465-70dc-48a6-b6cc-1429ce3476de.png">
 
-### Return to the API Inventory page and choose **Provided** for the catalogue.sock-shop API.  Drag the downloaded file (or choose it from the Downlaods folder) and select **Finish**.
+7. Return to the API Inventory page and choose **Provided** for the catalogue.sock-shop API.  Drag the downloaded file (or choose it from the Downlaods folder) and select **Finish**.
 
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173619560-edd3d8e9-59b0-42eb-b0d1-474a8706d2f9.png">
 
-### Click back on the API Inventory button to verify that the spec for catalogue has been provided.
+8. Click back on the API Inventory button to verify that the spec for catalogue has been provided.
 > This will act as the "approved" spec and revisiting the Sock Shop website and selecting different options will show variations to the provided spec.
 
 * Observe deviations from API spec
 
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173624730-64135cb0-51db-4907-a5c8-e8ae22bc1b2b.png">
 
-### Click on API Events. This will list all of the identified API calls and note those calls that differ from the uploaded specs.
+9. Click on API Events. This will list all of the identified API calls and note those calls that differ from the uploaded specs.
 
 ## BONUS: Simulating attacks using a shell script
 
