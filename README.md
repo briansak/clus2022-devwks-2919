@@ -60,12 +60,14 @@ https://microservices-demo.github.io/api/index.html
 
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173619560-edd3d8e9-59b0-42eb-b0d1-474a8706d2f9.png">
 
-
-
 ### Click back on the API Inventory button to verify that the spec for catalogue has been provided.
 > This will act as the "approved" spec and revisiting the Sock Shop website and selecting different options will show variations to the provided spec.
 
 * Observe deviations from API spec
+
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173624730-64135cb0-51db-4907-a5c8-e8ae22bc1b2b.png">
+
+### Click on API Events. This will list all of the identified API calls and note those calls that differ from the uploaded specs.
 
 ## BONUS: Simulating attacks using a shell script
 
