@@ -95,6 +95,13 @@ chmod +x feed.sh
 ```console
 ./feed.sh
 ```
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173626149-e83166e2-813b-498f-bfc5-7c1fb5517758.png">
+
+### Click on API Events and observe the new alerts associated with the traffic that we generated in the environment.
+
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/10421515/173626449-cd6dbae7-39b2-4d5d-8ab8-b66017ef4deb.png">
+
+### Click on Trace Analyis on one of the alerted events.  Observe the specific alert level and alert details.
 
 ## BONUS++: Testing security using ZAP Proxy
 
@@ -146,7 +153,7 @@ sh ZAP_2_11_1_unix.sh
 **Press 1**
 
 ```console
-zap.sh -daemon -quickurl http://$NODE_IP:$NODE_PORT/customers -quickprogress -host localhost -port 8999
+zap.sh -daemon -quickurl http://$NODE_IP:$NODE_PORT/customers -quickprogress -host localhost -port 8999 &
  ```
 
 
