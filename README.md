@@ -69,7 +69,7 @@ https://microservices-demo.github.io/api/index.html
 
 9. Click on API Events. This will list all of the identified API calls and note those calls that differ from the uploaded specs.
 
-## BONUS: Simulating attacks using a shell script
+## Simulating alerts using a shell script
 
 **Run the following commands in your terminal IN THE LEARNING LAB ENVIRONMENT**
 
@@ -104,7 +104,7 @@ chmod +x alert_gen.sh
 
 2. Click on **Trace Analyis** on one of the alerted events.  Observe the specific alert level and alert details.
 
-## BONUS++: Testing security using ZAP Proxy
+## BONUS: Testing security using ZAP Proxy
 
 **Run the following commands in your terminal IN THE LEARNING LAB ENVIRONMENT**
 
